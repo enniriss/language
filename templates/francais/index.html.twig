@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Francais index
+{% endblock %}
+
+{% block body %}
+	<h1>Francais index</h1>
+	<a href="{{ path('app_francais_new') }}">Create new</a>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Classe</th>
+				<th>Mot</th>
+				<th>Mot en Japonais</th>
+				<th>Mot en Arabe</th>
+				<th>Image</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for francai in francais %}
+				<tr>
+					<td>{{ francai.id }}</td>
+					<td>{{ francai.classe }}</td>
+					<td>{{ francai.mot }}</td>
+					<td>{{ francai.japon }}</td>
+					<td>{{ francai.arabe }}</td>
+
+					{% if francai.image != NULL %}
+						<td><img src="{{ francai.image }}" alt="{{ francai.mot }}"></td>
+					{% else %}
+						<td>NULL</td>
+					{% endif %}
+
+
+					<td>
+						<a href="{{ path('app_francais_show', {'id': francai.id}) }}">show</a>
+						<a href="{{ path('app_francais_edit', {'id': francai.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

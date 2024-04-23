@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Francais{% endblock %}
+
+{% block body %}
+    <h1>Edit Francais</h1>
+
+    {{ include('francais/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_francais_index') }}">back to list</a>
+
+    {{ include('francais/_delete_form.html.twig') }}
+{% endblock %}

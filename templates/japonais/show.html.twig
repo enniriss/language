@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Japonais{% endblock %}
+
+{% block body %}
+    <h1>Japonais</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ japonai.id }}</td>
+            </tr>
+            <tr>
+                <th>Classe</th>
+                <td>{{ japonai.classe }}</td>
+            </tr>
+            <tr>
+                <th>Mot</th>
+                <td>{{ japonai.mot }}</td>
+            </tr>
+            <tr>
+                <th>Hiragana</th>
+                <td>{{ japonai.hiragana }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_japonais_index') }}">back to list</a>
+
+    <a href="{{ path('app_japonais_edit', {'id': japonai.id}) }}">edit</a>
+
+    {{ include('japonais/_delete_form.html.twig') }}
+{% endblock %}

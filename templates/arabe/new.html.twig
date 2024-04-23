@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Arabe{% endblock %}
+
+{% block body %}
+    <h1>Create new Arabe</h1>
+
+    {{ include('arabe/_form.html.twig') }}
+
+    <a href="{{ path('app_arabe_index') }}">back to list</a>
+{% endblock %}

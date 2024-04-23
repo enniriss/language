@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Japonais index{% endblock %}
+
+{% block body %}
+    <h1>Japonais index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Classe</th>
+                <th>Mot</th>
+                <th>Hiragana</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for japonai in japonais %}
+            <tr>
+                <td>{{ japonai.id }}</td>
+                <td>{{ japonai.classe }}</td>
+                <td>{{ japonai.mot }}</td>
+                <td>{{ japonai.hiragana }}</td>
+                <td>
+                    <a href="{{ path('app_japonais_show', {'id': japonai.id}) }}">show</a>
+                    <a href="{{ path('app_japonais_edit', {'id': japonai.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_japonais_new') }}">Create new</a>
+{% endblock %}

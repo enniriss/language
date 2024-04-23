@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EvaluationController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Dropdown button
+			</button>
+			<ul class="dropdown-menu">
+				<li>
+					<a class="dropdown-item" href="/evaluation?recoit=francais">Français</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="/evaluation?recoit=arabe">Arabe</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</li>
+			</ul>
+		</div>
+		<button type="button" onclick="generator()">Télécharger</button>
+		<div Id="evaluation">
+		{% for question in interro %}
+			<div>
+				<p>{{question.francais}}
+					:
+					{{question.arabe}}</p>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Arabe index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Arabe index</h1>
+    <a href="{{ path('app_arabe_new') }}">Create new</a>
+</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Classe</th>
+                <th>Mot</th>
+                <th>Mot en Français</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for arabe in arabes %}
+            <tr>
+                <td>{{ arabe.id }}</td>
+                <td>{{ arabe.classe }}</td>
+                <td>{{ arabe.mot }}</td>
+                <td>{{ arabe.francais }}</td>
+                <td><img src="{{ arabe.image }}" alt="{{ arabe.mot }}"></td>
+                
+                <td>
+                <a href="{{ path('app_arabe_delete', {'id': arabe.id}) }}" class="btn btn-danger">Supprimer</a>
+                    <a href="{{ path('app_arabe_show', {'id': arabe.id}) }}">show</a>
+                    <a href="{{ path('app_arabe_edit', {'id': arabe.id}) }}">edit</a>
+                </td>
+            </tr>
+            <tr>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
